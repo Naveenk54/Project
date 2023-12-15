@@ -1,0 +1,43 @@
+import inquirer from "inquirer";
+let ans:{
+    Num1: number,
+    Num2: number,
+    operator: string
+
+} = await inquirer.prompt([
+    {
+        type: "number",
+        name: "Num1", 
+        message: "Enter first value: "
+    },
+    {
+        type: "number",
+        name: "Num2", 
+        message: "Enter second value: "
+    },
+    {
+        type: "list",
+        name: "operator",
+        choices:["Division /","Multiplication *","Addition +","Subtractation -"], 
+        message: "Enter first value: "
+    }
+]);
+let{ Num1 , Num2 , operator} = ans;
+if(Num1 && Num2 && operator){
+    let result: number = 0;
+    if(operator === "Addition +")    
+        result = Num1 + Num2;
+    else if(operator === "Subtractation -"){
+        result = Num1 - Num2;
+    }
+    else if(operator === "Multiplication *"){
+        result = Num1 * Num2;
+    }
+    else if(operator === "Division /"){
+        result = Num1 / Num2;
+    }
+    console.log("Your result is: ", result);   
+} 
+else{
+    console.log("Enter valid input");
+}
